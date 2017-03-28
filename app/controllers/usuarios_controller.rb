@@ -40,7 +40,7 @@ class UsuariosController < ApplicationController
       respond_to do |format|
         if @usuario.save
           format.html { redirect_to @usuario, notice: 'Usuario was successfully created.' }
-          format.json { render :show, status: :200, location: @usuario }
+          format.json { render :show, location: @usuario }
         else
           format.html { render :new }
           format.json { render json: @usuario.errors, status: :unprocessable_entity }
@@ -58,7 +58,7 @@ class UsuariosController < ApplicationController
     respond_to do |format|
       if @usuario.update(usuario_params)
         format.html { redirect_to @usuario, notice: 'Usuario was successfully updated.' }
-        format.json { render :show, status: => 200, location: @usuario }
+        format.json { render :show, location: @usuario }
       else
         format.html { render :edit }
         format.json { render json: @usuario.errors, status: :unprocessable_entity }
